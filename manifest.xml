@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
+           xsi:type="MailApp">
+  <Id>6b1f3c2e-8a4d-4e7b-9c51-2f0d7a9e4b13</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Stephanie Klahre</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Format and Sign"/>
+  <Description DefaultValue="Formats only your own message in Aptos and adds your signature below it, leaving the quoted thread untouched."/>
+  <IconUrl DefaultValue="https://stephanieklahrenetdocs.github.io/format-and-sign/assets/icon-64.png"/>
+  <HighResolutionIconUrl DefaultValue="https://stephanieklahrenetdocs.github.io/format-and-sign/assets/icon-128.png"/>
+  <SupportUrl DefaultValue="https://stephanieklahrenetdocs.github.io/format-and-sign/index.html"/>
+  <AppDomains>
+    <AppDomain>https://stephanieklahrenetdocs.github.io</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Mailbox"/>
+  </Hosts>
+  <Requirements>
+    <Sets>
+      <Set Name="Mailbox" MinVersion="1.8"/>
+    </Sets>
+  </Requirements>
+  <FormSettings>
+    <Form xsi:type="ItemEdit">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://stephanieklahrenetdocs.github.io/format-and-sign/index.html"/>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+  <Permissions>ReadWriteItem</Permissions>
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Edit"/>
+  </Rule>
+  <DisableEntityHighlighting>false</DisableEntityHighlighting>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Requirements>
+      <bt:Sets DefaultMinVersion="1.8">
+        <bt:Set Name="Mailbox"/>
+      </bt:Sets>
+    </Requirements>
+    <Hosts>
+      <Host xsi:type="MailHost">
+        <DesktopFormFactor>
+          <FunctionFile resid="Commands.Url"/>
+          <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+            <OfficeTab id="TabDefault">
+              <Group id="fsComposeGroup">
+                <Label resid="GroupLabel"/>
+                <Control xsi:type="Button" id="fsFormatAndSign">
+                  <Label resid="ButtonLabel"/>
+                  <Supertip>
+                    <Title resid="ButtonLabel"/>
+                    <Description resid="ButtonTooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16"/>
+                    <bt:Image size="32" resid="Icon.32"/>
+                    <bt:Image size="80" resid="Icon.80"/>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>formatAndSign</FunctionName>
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Images>
+        <bt:Image id="Icon.16" DefaultValue="https://stephanieklahrenetdocs.github.io/format-and-sign/assets/icon-16.png"/>
+        <bt:Image id="Icon.32" DefaultValue="https://stephanieklahrenetdocs.github.io/format-and-sign/assets/icon-32.png"/>
+        <bt:Image id="Icon.80" DefaultValue="https://stephanieklahrenetdocs.github.io/format-and-sign/assets/icon-80.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="Commands.Url" DefaultValue="https://stephanieklahrenetdocs.github.io/format-and-sign/commands.html"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="GroupLabel" DefaultValue="Format and Sign"/>
+        <bt:String id="ButtonLabel" DefaultValue="Format and Sign"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="ButtonTooltip" DefaultValue="Formats your message in Aptos and adds your signature below it. The quoted thread is not changed."/>
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
